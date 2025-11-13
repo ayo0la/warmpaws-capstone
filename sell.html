@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="List your puppies or kittens for sale. Free to post, only 10% fee when sold.">
+    <title>Sell Your Pets - Warm Paws</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <!-- Page Header -->
+        <header>
+            <h1 class="sr-only">Warm Paws - Sell Your Pets</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Navigation -->
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <strong>WARM PAWS</strong>
+                </div>
+                <ul class="nav-items" role="menubar">
+                    <li role="none">
+                        <a href="browse.html" class="nav-item" role="menuitem">Browse Pets</a>
+                    </li>
+                    <li role="none">
+                        <a href="sell.html" class="nav-item active" role="menuitem" aria-current="page">Post a Pet</a>
+                    </li>
+                    <li role="none">
+                        <a href="gallery.html" class="nav-item" role="menuitem">Gallery</a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="nav-item" role="menuitem">About</a>
+                    </li>
+                    <li role="none">
+                        <a href="#contact" class="nav-item" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="login.html" class="nav-item login-btn" role="button">My Account</a>
+                </div>
+            </nav>
+
+            <!-- Listing Form -->
+            <section class="box left-align" style="max-width: 500px; margin: 0 auto;" aria-labelledby="form-heading">
+                <h2 id="form-heading" class="text-center mb-lg">List Your Pets for Sale</h2>
+
+                <form action="#" method="post" enctype="multipart/form-data">
+                    <!-- Pet Type -->
+                    <div class="form-group">
+                        <label for="pet-type" class="label">Pet Type *</label>
+                        <select id="pet-type" name="pet-type" class="form-control" required aria-required="true">
+                            <option value="">Select: Puppies / Kittens</option>
+                            <option value="puppies">Puppies</option>
+                            <option value="kittens">Kittens</option>
+                        </select>
+                    </div>
+
+                    <!-- Breed -->
+                    <div class="form-group">
+                        <label for="breed" class="label">Breed *</label>
+                        <input type="text" id="breed" name="breed" class="form-control" placeholder="Enter breed" required aria-required="true">
+                    </div>
+
+                    <!-- Age -->
+                    <div class="form-group">
+                        <label for="age" class="label">Age (weeks) *</label>
+                        <input type="number" id="age" name="age" class="form-control" placeholder="Enter age in weeks" min="0" required aria-required="true">
+                    </div>
+
+                    <!-- Litter Size -->
+                    <div class="form-group">
+                        <label for="litter-size" class="label">Number Available *</label>
+                        <input type="number" id="litter-size" name="litter-size" class="form-control" placeholder="How many in the litter?" min="1" required aria-required="true">
+                    </div>
+
+                    <!-- Price -->
+                    <div class="form-group">
+                        <label for="price" class="label">Price Per Pet *</label>
+                        <input type="number" id="price" name="price" class="form-control" placeholder="Enter price" min="0" step="0.01" required aria-required="true">
+                    </div>
+
+                    <!-- Location -->
+                    <div class="form-group">
+                        <label for="location" class="label">Location *</label>
+                        <input type="text" id="location" name="location" class="form-control" placeholder="City, State" required aria-required="true">
+                    </div>
+
+                    <!-- Description -->
+                    <div class="form-group">
+                        <label for="description" class="label">Description *</label>
+                        <textarea id="description" name="description" class="form-control" placeholder="Describe your pets, health status, personality, etc." required aria-required="true"></textarea>
+                    </div>
+
+                    <!-- Photo Upload -->
+                    <div class="form-group">
+                        <label for="photos" class="label">Upload Photos *</label>
+                        <div class="file-upload">
+                            <label for="photos" style="cursor: pointer;">
+                                + Add Photos
+                                <input type="file" id="photos" name="photos" multiple accept="image/*" class="sr-only" required aria-required="true">
+                            </label>
+                        </div>
+                        <p class="mt-sm" style="font-size: 10px; color: #666;">You can select multiple photos</p>
+                    </div>
+
+                    <!-- Seller Contact -->
+                    <div class="form-group">
+                        <label for="contact" class="label">Seller Contact *</label>
+                        <input type="tel" id="contact" name="contact" class="form-control" placeholder="Phone Number" required aria-required="true">
+                    </div>
+
+                    <!-- Fee Information -->
+                    <div class="box success">
+                        <strong>âœ“ Free to List - No Upfront Fees!</strong>
+                        <p class="mt-sm">We only charge 10% when your pet sells</p>
+                        <p style="color: #666;">Example: Sell for $800 â†’ You receive $720</p>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center mt-lg">
+                        <button type="submit" class="btn btn-large">Post Listing (Free)</button>
+                    </div>
+
+                    <p class="text-center mt-sm" style="font-size: 10px; color: #666;">
+                        * Required fields
+                    </p>
+                </form>
+
+                <!-- Selling Tips Section with Details/Summary Widget -->
+                <div class="mt-lg">
+                    <h3 class="text-center mb-md">📋 Helpful Selling Tips</h3>
+                    
+                    <details class="faq-item">
+                        <summary>How to write a great pet description</summary>
+                        <div class="faq-content">
+                            <p>Include personality traits, energy level, health status, vaccination records, and any special needs. Mention if they're good with children, other pets, or specific behaviors. Be honest and detailed to attract the right buyers.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Tips for taking great pet photos</summary>
+                        <div class="faq-content">
+                            <p>Use natural lighting, get down to the pet's eye level, capture their personality, and show multiple angles. Include photos of the pet playing, resting, and interacting. Clean backgrounds work best. Take at least 5-10 photos to choose from.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What information should I collect from buyers?</summary>
+                        <div class="faq-content">
+                            <p>Request their living situation (house/apartment), experience with pets, other pets in home, presence of children, and their schedule. Ask about veterinary plans and if they've researched the breed's needs. This helps ensure a good match.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How to price your pets fairly</summary>
+                        <div class="faq-content">
+                            <p>Research similar breeds in your area. Factor in vaccination costs, health certificates, and any training provided. Purebreds typically cost more than mixed breeds. Consider the local market and the pet's age—younger animals often command higher prices.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div>
+                <p>Â© 2025 Warm Paws |
+                    <a href="#about">About</a> |
+                    <a href="#contact">Contact</a> |
+                    <a href="#terms">Terms</a> |
+                    <a href="#privacy">Privacy</a>
+                </p>
+            </div>
+            <nav class="social-links" aria-label="Social media links">
+                Follow us:
+                <a href="#facebook" class="social-link" aria-label="Follow us on Facebook">Facebook</a>
+                <a href="#instagram" class="social-link" aria-label="Follow us on Instagram">Instagram</a>
+                <a href="#twitter" class="social-link" aria-label="Follow us on Twitter">Twitter</a>
+                <a href="#tiktok" class="social-link" aria-label="Follow us on TikTok">TikTok</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Golden Retriever puppies for sale - $800 each. Healthy, vaccinated, ready for their forever homes.">
+    <title>Golden Retriever Puppies - Warm Paws</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <!-- Page Header -->
+        <header>
+            <h1 class="sr-only">Golden Retriever Puppies - Pet Details</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Navigation -->
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <strong>WARM PAWS</strong>
+                </div>
+                <ul class="nav-items" role="menubar">
+                    <li role="none">
+                        <a href="browse.html" class="nav-item" role="menuitem">Browse Pets</a>
+                    </li>
+                    <li role="none">
+                        <a href="sell.html" class="nav-item" role="menuitem">Post a Pet</a>
+                    </li>
+                    <li role="none">
+                        <a href="gallery.html" class="nav-item" role="menuitem">Gallery</a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="nav-item" role="menuitem">About</a>
+                    </li>
+                    <li role="none">
+                        <a href="#contact" class="nav-item" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="login.html" class="nav-item login-btn" role="button">My Account</a>
+                </div>
+            </nav>
+
+            <!-- Pet Details Section -->
+            <section class="grid-2 mb-lg">
+                <!-- Left: Images -->
+                <article class="box">
+                    <h2 class="sr-only">Pet Photos</h2>
+                    <div style="height: 250px; background: #e0e0e0; border: 1px dashed #999; display: flex; align-items: center; justify-content: center; margin-bottom: 10px;" role="img" aria-label="Main photo of Golden Retriever puppies">
+                        [Main Pet Photo]
+                    </div>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px;">
+                        <div style="height: 50px; background: #f0f0f0; border: 1px solid #999;" role="img" aria-label="Additional photo 1"></div>
+                        <div style="height: 50px; background: #f0f0f0; border: 1px solid #999;" role="img" aria-label="Additional photo 2"></div>
+                        <div style="height: 50px; background: #f0f0f0; border: 1px solid #999;" role="img" aria-label="Additional photo 3"></div>
+                        <div style="height: 50px; background: #f0f0f0; border: 1px solid #999;" role="img" aria-label="Additional photo 4"></div>
+                    </div>
+                </article>
+
+                <!-- Right: Details -->
+                <article class="box left-align">
+                    <h2>Golden Retriever Puppies</h2>
+                    <div class="price-tag large" aria-label="Price: $800 each">$800 each</div>
+
+                    <div class="mt-md mb-md">
+                        <p><strong>Age:</strong> 8 weeks</p>
+                        <p><strong>Available:</strong> 4 of 6 remaining</p>
+                        <p><strong>Location:</strong> Atlanta, GA</p>
+                        <p><strong>Posted:</strong> 3 days ago</p>
+                    </div>
+
+                    <!-- Quantity Selection -->
+                    <div style="margin: 15px 0; padding: 15px; background: #f5f5f5;">
+                        <label for="quantity" style="font-weight: bold;">Select Quantity:</label>
+                        <select id="quantity" name="quantity" class="form-control" style="margin-top: 10px;">
+                            <option value="1">1 puppy - $800</option>
+                            <option value="2">2 puppies - $1,600</option>
+                            <option value="3">3 puppies - $2,400</option>
+                            <option value="4">4 puppies - $3,200</option>
+                        </select>
+                    </div>
+
+                    <!-- Price Breakdown -->
+                    <div class="price-breakdown">
+                        <strong>Price Breakdown:</strong>
+                        <div class="price-row">
+                            <span>Pet Price:</span>
+                            <span>$800.00</span>
+                        </div>
+                        <div class="price-row subtotal">
+                            <span>Service Fee (5%):</span>
+                            <span>$40.00</span>
+                        </div>
+                        <div class="price-row total">
+                            <strong>Total:</strong>
+                            <strong>$840.00</strong>
+                        </div>
+                    </div>
+
+                    <!-- Purchase Button -->
+                    <div class="mt-lg mb-lg">
+                        <button type="button" class="btn btn-large btn-block">Reserve & Pay - $840</button>
+                    </div>
+
+                    <!-- Seller Info -->
+                    <aside class="seller-info">
+                        <strong>Seller:</strong> John Smith<br>
+                        <strong>Member since:</strong> 2024<br>
+                        <strong>Response time:</strong> Usually within 2 hours<br>
+                        <p style="font-size: 10px; margin-top: 8px; color: #666;">Seller receives: $720 (after 10% platform fee)</p>
+                        <button type="button" class="btn btn-secondary btn-block">Contact Seller</button>
+                    </aside>
+                </article>
+            </section>
+
+            <!-- Description Section -->
+            <section class="box left-align" aria-labelledby="description-heading">
+                <h3 id="description-heading">Description</h3>
+                <p class="mt-sm">Beautiful Golden Retriever puppies from champion bloodline. Both parents on site.
+                Puppies have been vet checked, first vaccinations, dewormed, and come with health certificate.
+                Very friendly and great with children. Ready for their forever homes!</p>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="box info left-align" aria-labelledby="how-works-heading">
+                <h3 id="how-works-heading">How It Works</h3>
+                <div class="grid mt-md">
+                    <article class="text-center">
+                        <strong>1. Reserve</strong>
+                        <p>Pay full price online</p>
+                    </article>
+                    <article class="text-center">
+                        <strong>2. Meet</strong>
+                        <p>Schedule pickup time</p>
+                    </article>
+                    <article class="text-center">
+                        <strong>3. Take Home</strong>
+                        <p>Pickup your new pet</p>
+                    </article>
+                </div>
+            </section>
+
+            <!-- Fee Transparency Section -->
+            <section class="box light left-align" aria-labelledby="fee-structure-heading">
+                <h3 id="fee-structure-heading">ðŸ’° Our Fee Structure</h3>
+                <div class="grid-2 mt-md">
+                    <article class="fee-section">
+                        <strong>For Sellers:</strong>
+                        <p class="mt-sm">âœ“ Free to list</p>
+                        <p>âœ“ No upfront costs</p>
+                        <p>âœ“ 10% fee only when sold</p>
+                        <p class="fee-highlight seller mt-sm">You keep 90% of sale price</p>
+                    </article>
+                    <article class="fee-section">
+                        <strong>For Buyers:</strong>
+                        <p class="mt-sm">âœ“ Secure payment processing</p>
+                        <p>âœ“ Purchase protection</p>
+                        <p>âœ“ 5% service fee</p>
+                        <p class="fee-highlight buyer mt-sm">Small fee for peace of mind</p>
+                    </article>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div>
+                <p>Â© 2025 Warm Paws |
+                    <a href="#about">About</a> |
+                    <a href="#contact">Contact</a> |
+                    <a href="#terms">Terms</a> |
+                    <a href="#privacy">Privacy</a>
+                </p>
+            </div>
+            <nav class="social-links" aria-label="Social media links">
+                Follow us:
+                <a href="#facebook" class="social-link" aria-label="Follow us on Facebook">Facebook</a>
+                <a href="#instagram" class="social-link" aria-label="Follow us on Instagram">Instagram</a>
+                <a href="#twitter" class="social-link" aria-label="Follow us on Twitter">Twitter</a>
+                <a href="#tiktok" class="social-link" aria-label="Follow us on TikTok">TikTok</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>

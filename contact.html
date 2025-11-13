@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Warm Paws - Get in touch with our team for support, questions, or feedback.">
+    <title>Contact Us - Warm Paws</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Navigation -->
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <strong>WARM PAWS</strong>
+                </div>
+                <ul class="nav-items" role="menubar">
+                    <li role="none">
+                        <a href="index.html" class="nav-item" role="menuitem">Browse Pets</a>
+                    </li>
+                    <li role="none">
+                        <a href="sell.html" class="nav-item" role="menuitem">Post a Pet</a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="nav-item" role="menuitem">About</a>
+                    </li>
+                    <li role="none">
+                        <a href="contact.html" class="nav-item active" role="menuitem" aria-current="page">Contact</a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="login.html" class="nav-item login-btn" role="button">Login / Register</a>
+                </div>
+            </nav>
+
+            <!-- Page Header Section -->
+            <section class="box" aria-labelledby="contact-heading">
+                <h1 id="contact-heading">Contact Warm Paws</h1>
+                <p>We're here to help! Send us a message and we'll respond within 24 hours.</p>
+            </section>
+
+            <!-- Contact Form Section -->
+            <section class="box left-align" aria-labelledby="form-heading">
+                <h2 id="form-heading" class="text-center mb-lg">Get in Touch</h2>
+
+                <!--
+                    CONTACT FORM
+                    This form collects user information and inquiries
+                    Data is submitted to demo.php for processing
+                -->
+                <form method="post" action="https://webdevbasics.net/scripts/demo.php" id="contact-form">
+
+                    <!-- PERSONAL INFORMATION SECTION -->
+                    <fieldset class="form-fieldset">
+                        <legend class="form-legend">Your Information</legend>
+
+                        <!-- Name Input Field -->
+                        <div class="form-group">
+                            <label for="full-name" class="form-label">Full Name *</label>
+                            <input
+                                type="text"
+                                id="full-name"
+                                name="full-name"
+                                class="form-input"
+                                placeholder="Enter your full name"
+                                required
+                                aria-required="true">
+                        </div>
+
+                        <!-- Email Input Field -->
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address *</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                class="form-input"
+                                placeholder="your.email@example.com"
+                                required
+                                aria-required="true">
+                        </div>
+
+                        <!-- Phone Input Field -->
+                        <div class="form-group">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                name="phone"
+                                class="form-input"
+                                placeholder="(555) 123-4567"
+                                pattern="[\(]?[0-9]{3}[\)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4}">
+                            <small class="form-hint">Optional - Format: (555) 123-4567</small>
+                        </div>
+                    </fieldset>
+
+                    <!-- INQUIRY DETAILS SECTION -->
+                    <fieldset class="form-fieldset">
+                        <legend class="form-legend">Your Inquiry</legend>
+
+                        <!-- Dropdown Select for Inquiry Type -->
+                        <div class="form-group">
+                            <label for="inquiry-type" class="form-label">What can we help you with? *</label>
+                            <select
+                                id="inquiry-type"
+                                name="inquiry-type"
+                                class="form-input"
+                                required
+                                aria-required="true">
+                                <option value="">-- Please Select --</option>
+                                <option value="general">General Question</option>
+                                <option value="support">Technical Support</option>
+                                <option value="buying">Question About Buying</option>
+                                <option value="selling">Question About Selling</option>
+                                <option value="report">Report a Problem</option>
+                                <option value="feedback">Feedback/Suggestion</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <!-- Subject Input Field -->
+                        <div class="form-group">
+                            <label for="subject" class="form-label">Subject *</label>
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                class="form-input"
+                                placeholder="Brief description of your inquiry"
+                                required
+                                aria-required="true">
+                        </div>
+
+                        <!-- Message Textarea -->
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message *</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                class="form-input form-textarea"
+                                placeholder="Please provide details about your question or concern..."
+                                rows="6"
+                                required
+                                aria-required="true"></textarea>
+                            <small class="form-hint">Please be as detailed as possible to help us assist you better</small>
+                        </div>
+                    </fieldset>
+
+                    <!-- CONTACT PREFERENCES SECTION -->
+                    <fieldset class="form-fieldset">
+                        <legend class="form-legend">Contact Preferences</legend>
+
+                        <!-- Radio Buttons for Contact Method -->
+                        <div class="form-group">
+                            <label class="form-label">How would you prefer we contact you? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input
+                                        type="radio"
+                                        name="contact-method"
+                                        value="email"
+                                        checked
+                                        required>
+                                    <span>Email</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input
+                                        type="radio"
+                                        name="contact-method"
+                                        value="phone"
+                                        required>
+                                    <span>Phone Call</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input
+                                        type="radio"
+                                        name="contact-method"
+                                        value="text"
+                                        required>
+                                    <span>Text Message</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Checkboxes for Topics of Interest -->
+                        <div class="form-group">
+                            <label class="form-label">Which topics are you interested in? (Optional)</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input
+                                        type="checkbox"
+                                        name="interests[]"
+                                        value="buying-tips">
+                                    <span>Pet Buying Tips</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input
+                                        type="checkbox"
+                                        name="interests[]"
+                                        value="selling-guide">
+                                    <span>Seller's Guide</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input
+                                        type="checkbox"
+                                        name="interests[]"
+                                        value="care-advice">
+                                    <span>Pet Care Advice</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input
+                                        type="checkbox"
+                                        name="interests[]"
+                                        value="newsletter">
+                                    <span>Monthly Newsletter</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter Signup Checkbox -->
+                        <div class="form-group">
+                            <label class="checkbox-label checkbox-highlight">
+                                <input
+                                    type="checkbox"
+                                    name="newsletter-signup"
+                                    value="yes">
+                                <span>Yes, I'd like to receive updates and special offers from Warm Paws</span>
+                            </label>
+                        </div>
+                    </fieldset>
+
+                    <!-- FORM SUBMISSION SECTION -->
+                    <div class="form-actions">
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary">
+                            Send Message
+                        </button>
+
+                        <!-- Reset Button -->
+                        <button type="reset" class="btn btn-secondary">
+                            Clear Form
+                        </button>
+                    </div>
+
+                    <!-- Form Footer Notes -->
+                    <p class="text-center mt-md">
+                        <small>* Required fields | We typically respond within 24 hours</small>
+                    </p>
+                </form>
+            </section>
+
+            <!-- Contact Information Section -->
+            <section class="box" aria-labelledby="other-contact-heading">
+                <h2 id="other-contact-heading">Other Ways to Reach Us</h2>
+                <div class="mt-md">
+                    <p><strong>Email:</strong> support@warmpaws.com</p>
+                    <p><strong>Phone:</strong> 1-800-WARM-PAW (1-800-927-6729)</p>
+                    <p><strong>Hours:</strong> Monday - Friday, 9am - 6pm EST</p>
+                    <p class="mt-md"><strong>Mailing Address:</strong><br>
+                    Warm Paws, Inc.<br>
+                    123 Pet Lane<br>
+                    Animal City, AC 12345</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div>
+                <p>© 2025 Warm Paws |
+                    <a href="#about">About</a> |
+                    <a href="contact.html">Contact</a> |
+                    <a href="#terms">Terms</a> |
+                    <a href="#privacy">Privacy</a>
+                </p>
+            </div>
+            <nav class="social-links" aria-label="Social media links">
+                Follow us:
+                <a href="#facebook" class="social-link" aria-label="Follow us on Facebook">Facebook</a>
+                <a href="#instagram" class="social-link" aria-label="Follow us on Instagram">Instagram</a>
+                <a href="#twitter" class="social-link" aria-label="Follow us on Twitter">Twitter</a>
+                <a href="#tiktok" class="social-link" aria-label="Follow us on TikTok">TikTok</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>

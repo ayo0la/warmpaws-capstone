@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our gallery of adorable puppies and kittens available for adoption">
+    <title>Pet Gallery - Warm Paws</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <!-- Page Header -->
+        <header>
+            <h1 class="sr-only">Warm Paws - Pet Gallery</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Navigation -->
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <strong>WARM PAWS</strong>
+                </div>
+                <ul class="nav-items" role="menubar">
+                    <li role="none">
+                        <a href="browse.html" class="nav-item" role="menuitem">Browse Pets</a>
+                    </li>
+                    <li role="none">
+                        <a href="sell.html" class="nav-item" role="menuitem">Post a Pet</a>
+                    </li>
+                    <li role="none">
+                        <a href="gallery.html" class="nav-item active" role="menuitem" aria-current="page">Gallery</a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="nav-item" role="menuitem">About</a>
+                    </li>
+                    <li role="none">
+                        <a href="#contact" class="nav-item" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="login.html" class="nav-item login-btn" role="button">My Account</a>
+                </div>
+            </nav>
+
+            <!-- Page Header Section -->
+            <section class="box">
+                <h2>Pet Photo Gallery</h2>
+                <p>Browse photos of our adorable puppies and kittens</p>
+            </section>
+
+            <!-- CSS Image Gallery Section -->
+            <section class="gallery-section" aria-labelledby="gallery-heading">
+                <h2 id="gallery-heading" class="sr-only">Interactive Pet Photo Gallery</h2>
+                
+                <div class="gallery-container">
+                    <!-- Gallery Item 1 -->
+                    <figure class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=400&h=300&fit=crop" 
+                             alt="Golden Retriever puppy sitting on grass"
+                             loading="lazy">
+                        <figcaption>Golden Retriever Puppy</figcaption>
+                    </figure>
+
+                    <!-- Gallery Item 2 -->
+                    <figure class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=400&h=300&fit=crop" 
+                             alt="Adorable white kitten with blue eyes"
+                             loading="lazy">
+                        <figcaption>White Kitten</figcaption>
+                    </figure>
+
+                    <!-- Gallery Item 3 -->
+                    <figure class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=300&fit=crop" 
+                             alt="Labrador puppy playing outdoors"
+                             loading="lazy">
+                        <figcaption>Labrador Puppy</figcaption>
+                    </figure>
+
+                    <!-- Gallery Item 4 -->
+                    <figure class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop" 
+                             alt="Tabby kitten lounging comfortably"
+                             loading="lazy">
+                        <figcaption>Tabby Kitten</figcaption>
+                    </figure>
+
+                    <!-- Gallery Item 5 -->
+                    <figure class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=400&h=300&fit=crop" 
+                             alt="Beagle puppy with big eyes"
+                             loading="lazy">
+                        <figcaption>Beagle Puppy</figcaption>
+                    </figure>
+
+                    <!-- Gallery Item 6 -->
+                    <figure class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1573865526739-10c1d3a1f0cc?w=400&h=300&fit=crop" 
+                             alt="Orange striped kitten playing"
+                             loading="lazy">
+                        <figcaption>Orange Kitten</figcaption>
+                    </figure>
+
+                    <!-- Gallery Item 7 -->
+                    <figure class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=400&h=300&fit=crop" 
+                             alt="German Shepherd puppy"
+                             loading="lazy">
+                        <figcaption>German Shepherd Puppy</figcaption>
+                    </figure>
+
+                    <!-- Gallery Item 8 -->
+                    <figure class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=400&h=300&fit=crop" 
+                             alt="Gray kitten with green eyes"
+                             loading="lazy">
+                        <figcaption>Gray Kitten</figcaption>
+                    </figure>
+
+                    <!-- Gallery Item 9 -->
+                    <figure class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1591871937573-74dbba515c4c?w=400&h=300&fit=crop" 
+                             alt="Corgi puppy smiling at camera"
+                             loading="lazy">
+                        <figcaption>Corgi Puppy</figcaption>
+                    </figure>
+                </div>
+
+                <div class="box info mt-lg">
+                    <p><strong>Like what you see?</strong> Browse our available pets or list your own litter!</p>
+                    <div class="mt-md">
+                        <a href="browse.html" class="btn">Browse Available Pets</a>
+                        <a href="sell.html" class="btn btn-secondary">Post Your Litter</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pet Care Tips with Details/Summary Widget -->
+            <section class="box left-align" aria-labelledby="tips-heading">
+                <h2 id="tips-heading" class="text-center mb-lg">Pet Care Tips & FAQs</h2>
+                
+                <div class="faq-container">
+                    <details class="faq-item">
+                        <summary>What age should puppies be before adoption?</summary>
+                        <div class="faq-content">
+                            <p>Puppies should be at least 8 weeks old before leaving their mother. This allows proper socialization with littermates and ensures they've received essential early-life nutrition. Many breeders recommend waiting until 10-12 weeks for optimal development.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How do I prepare my home for a new kitten?</summary>
+                        <div class="faq-content">
+                            <p>Create a safe space with litter box, food/water bowls, scratching post, and toys. Remove toxic plants, secure loose wires, and block small spaces where kittens could get stuck. Set up a quiet room for initial adjustment before introducing them to the full house.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What vaccinations do puppies need?</summary>
+                        <div class="faq-content">
+                            <p>Puppies typically need DHPP (Distemper, Hepatitis, Parvovirus, Parainfluenza) at 6-8 weeks, 10-12 weeks, and 14-16 weeks. Rabies vaccine is given at 12-16 weeks. Your veterinarian will provide a complete vaccination schedule based on your puppy's needs.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How much does it cost to care for a pet?</summary>
+                        <div class="faq-content">
+                            <p>Annual costs for puppies range from $1,500-$2,000 including food, veterinary care, supplies, and training. Kittens cost $800-$1,500 annually. Initial setup costs (crate, bed, supplies) add $200-$500. Emergency vet visits and unexpected expenses should also be budgeted.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>What should I feed my new puppy or kitten?</summary>
+                        <div class="faq-content">
+                            <p>Feed high-quality puppy or kitten formula food appropriate for their age. Puppies need 3-4 small meals daily until 6 months, then 2 meals daily. Kittens need 4 meals daily until 6 months, then 2-3 meals. Always provide fresh water and consult your vet for specific recommendations.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>How does Warm Paws protect buyers and sellers?</summary>
+                        <div class="faq-content">
+                            <p>We verify all listings, provide secure payment processing, offer purchase protection guarantees, and maintain dispute resolution services. Sellers receive 90% of the sale price after our 10% platform fee. Buyers pay a 5% service fee for secure transactions and buyer protection.</p>
+                        </div>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>Can I visit the pet before purchasing?</summary>
+                        <div class="faq-content">
+                            <p>Absolutely! We strongly encourage meeting the pet, seeing their living conditions, and meeting the parents if possible. Use our platform to schedule visits with sellers. Never send money without meeting the pet first, and always meet in safe, public locations or at the seller's verified home.</p>
+                        </div>
+                    </details>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div>
+                <p>© 2025 Warm Paws |
+                    <a href="#about">About</a> |
+                    <a href="#contact">Contact</a> |
+                    <a href="#terms">Terms</a> |
+                    <a href="#privacy">Privacy</a>
+                </p>
+            </div>
+            <nav class="social-links" aria-label="Social media links">
+                Follow us:
+                <a href="#facebook" class="social-link" aria-label="Follow us on Facebook">Facebook</a>
+                <a href="#instagram" class="social-link" aria-label="Follow us on Instagram">Instagram</a>
+                <a href="#twitter" class="social-link" aria-label="Follow us on Twitter">Twitter</a>
+                <a href="#tiktok" class="social-link" aria-label="Follow us on TikTok">TikTok</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>

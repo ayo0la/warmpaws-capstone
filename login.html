@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login to Warm Paws or create a new account to buy and sell pets.">
+    <title>Login - Warm Paws</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <!-- Page Header -->
+        <header>
+            <h1 class="sr-only">Warm Paws - Login or Register</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Navigation -->
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <strong>WARM PAWS</strong>
+                </div>
+                <ul class="nav-items" role="menubar">
+                    <li role="none">
+                        <a href="browse.html" class="nav-item" role="menuitem">Browse Pets</a>
+                    </li>
+                    <li role="none">
+                        <a href="sell.html" class="nav-item" role="menuitem">Post a Pet</a>
+                    </li>
+                    <li role="none">
+                        <a href="gallery.html" class="nav-item" role="menuitem">Gallery</a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="nav-item" role="menuitem">About</a>
+                    </li>
+                    <li role="none">
+                        <a href="#contact" class="nav-item" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="login.html" class="nav-item login-btn active" role="button" aria-current="page">Login</a>
+                </div>
+            </nav>
+
+            <!-- Login Form -->
+            <section class="box left-align" style="max-width: 400px; margin: 50px auto; padding: 40px;" aria-labelledby="login-heading">
+                <h2 id="login-heading" class="text-center mb-lg">Welcome Back</h2>
+
+                <form action="#" method="post">
+                    <!-- Email Field -->
+                    <div class="form-group">
+                        <label for="email" class="label">Email</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="form-control"
+                            placeholder="Enter your email"
+                            required
+                            aria-required="true"
+                            autocomplete="email">
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group">
+                        <label for="password" class="label">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="form-control"
+                            placeholder="Enter password"
+                            required
+                            aria-required="true"
+                            autocomplete="current-password">
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="form-group" style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Remember me</label>
+                        </div>
+                        <a href="#forgot-password" style="font-size: 11px; text-decoration: underline;">Forgot password?</a>
+                    </div>
+
+                    <!-- Login Button -->
+                    <div class="mt-lg mb-lg">
+                        <button type="submit" class="btn btn-block btn-large">Login</button>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="text-center mb-lg" style="font-size: 11px; color: #666;">
+                        â€”â€”â€” OR â€”â€”â€”
+                    </div>
+
+                    <!-- Social Login Options -->
+                    <div class="mt-lg">
+                        <button type="button" class="btn btn-secondary btn-block mb-sm">
+                            Login with Google
+                        </button>
+                        <button type="button" class="btn btn-secondary btn-block">
+                            Login with Facebook
+                        </button>
+                    </div>
+
+                    <!-- Sign Up Link -->
+                    <div class="text-center mt-lg" style="font-size: 11px;">
+                        New to Warm Paws? <a href="#register" style="text-decoration: underline; font-weight: bold;">Create an account</a>
+                    </div>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo" style="margin-top: 50px;">
+            <div>
+                <p>Â© 2025 Warm Paws |
+                    <a href="#about">About</a> |
+                    <a href="#contact">Contact</a> |
+                    <a href="#terms">Terms</a> |
+                    <a href="#privacy">Privacy</a>
+                </p>
+            </div>
+            <nav class="social-links" aria-label="Social media links">
+                Follow us:
+                <a href="#facebook" class="social-link" aria-label="Follow us on Facebook">Facebook</a>
+                <a href="#instagram" class="social-link" aria-label="Follow us on Instagram">Instagram</a>
+                <a href="#twitter" class="social-link" aria-label="Follow us on Twitter">Twitter</a>
+                <a href="#tiktok" class="social-link" aria-label="Follow us on TikTok">TikTok</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>

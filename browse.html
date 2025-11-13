@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse available puppies and kittens for sale. Find your perfect pet near you.">
+    <title>Browse Pets - Warm Paws</title>
+    <link rel="stylesheet" href="project.css">
+</head>
+<body>
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <!-- Page Header -->
+        <header>
+            <h1 class="sr-only">Warm Paws - Browse Pets</h1>
+        </header>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Navigation -->
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <strong>WARM PAWS</strong>
+                </div>
+                <ul class="nav-items" role="menubar">
+                    <li role="none">
+                        <a href="browse.html" class="nav-item active" role="menuitem" aria-current="page">Browse Pets</a>
+                    </li>
+                    <li role="none">
+                        <a href="sell.html" class="nav-item" role="menuitem">Post a Pet</a>
+                    </li>
+                    <li role="none">
+                        <a href="gallery.html" class="nav-item" role="menuitem">Gallery</a>
+                    </li>
+                    <li role="none">
+                        <a href="#about" class="nav-item" role="menuitem">About</a>
+                    </li>
+                    <li role="none">
+                        <a href="#contact" class="nav-item" role="menuitem">Contact</a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="login.html" class="nav-item login-btn" role="button">My Account</a>
+                </div>
+            </nav>
+
+            <!-- Page Header Section -->
+            <section class="box">
+                <h2>Pets For Sale</h2>
+                <p>Find your perfect puppy or kitten</p>
+            </section>
+
+            <!-- Main Layout: Sidebar + Content -->
+            <div class="two-column">
+                <!-- Filters Sidebar -->
+                <aside class="sidebar" role="complementary" aria-labelledby="filters-heading">
+                    <h3 id="filters-heading">FILTERS</h3>
+
+                    <!-- Pet Type Filter -->
+                    <div class="sidebar-section">
+                        <div class="label">Type</div>
+                        <form>
+                            <div>
+                                <input type="checkbox" id="puppies" name="type" value="puppies">
+                                <label for="puppies">Puppies</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="kittens" name="type" value="kittens">
+                                <label for="kittens">Kittens</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="sidebar-section">
+                        <div class="label">Price Range</div>
+                        <form>
+                            <div>
+                                <label for="min-price" class="sr-only">Minimum price</label>
+                                <input type="number" id="min-price" placeholder="Min: $" class="form-control">
+                            </div>
+                            <div class="mt-sm">
+                                <label for="max-price" class="sr-only">Maximum price</label>
+                                <input type="number" id="max-price" placeholder="Max: $" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Age Filter -->
+                    <div class="sidebar-section">
+                        <div class="label">Age</div>
+                        <form>
+                            <div>
+                                <input type="checkbox" id="age-0-8" name="age" value="0-8">
+                                <label for="age-0-8">0-8 weeks</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="age-8-12" name="age" value="8-12">
+                                <label for="age-8-12">8-12 weeks</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" id="age-3plus" name="age" value="3plus">
+                                <label for="age-3plus">3+ months</label>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Location Filter -->
+                    <div class="sidebar-section">
+                        <div class="label">Location</div>
+                        <form>
+                            <label for="distance" class="sr-only">Distance in miles</label>
+                            <input type="number" id="distance" placeholder="Within ___ miles" class="form-control">
+                        </form>
+                    </div>
+
+                    <button type="button" class="btn btn-block">Apply Filters</button>
+                </aside>
+
+                <!-- Pet Grid Content -->
+                <section aria-labelledby="results-heading">
+                    <h2 class="sr-only" id="results-heading">Pet Listings</h2>
+
+                    <!-- Sort Bar -->
+                    <div class="box">
+                        <div class="price-row">
+                            <span>Showing 12 pets</span>
+                            <div>
+                                <label for="sort-select" class="sr-only">Sort by</label>
+                                <select id="sort-select" class="form-control">
+                                    <option>Price: Low to High</option>
+                                    <option>Price: High to Low</option>
+                                    <option>Newest</option>
+                                    <option>Closest</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pet Cards Grid -->
+                    <div class="grid">
+                        <!-- Pet Card 1 -->
+                        <article class="card">
+                            <div class="img-box" role="img" aria-label="Golden Retriever puppy photo">
+                                [Pet Photo]
+                            </div>
+                            <h3>Golden Retriever</h3>
+                            <p>8 weeks â€¢ Litter of 6</p>
+                            <p>Atlanta, GA â€¢ 2 miles</p>
+                            <div class="price-tag">$800</div>
+                            <a href="detail.html" class="btn btn-small">Buy Now</a>
+                        </article>
+
+                        <!-- Pet Card 2 -->
+                        <article class="card">
+                            <div class="img-box" role="img" aria-label="Siamese kittens photo">
+                                [Pet Photo]
+                            </div>
+                            <h3>Siamese Kittens</h3>
+                            <p>10 weeks â€¢ Litter of 4</p>
+                            <p>Decatur, GA â€¢ 8 miles</p>
+                            <div class="price-tag">$350</div>
+                            <a href="detail.html" class="btn btn-small">Buy Now</a>
+                        </article>
+
+                        <!-- Pet Card 3 -->
+                        <article class="card">
+                            <div class="img-box" role="img" aria-label="Lab Mix puppies photo">
+                                [Pet Photo]
+                            </div>
+                            <h3>Lab Mix</h3>
+                            <p>12 weeks â€¢ Litter of 5</p>
+                            <p>Marietta, GA â€¢ 15 miles</p>
+                            <div class="price-tag">$450</div>
+                            <a href="detail.html" class="btn btn-small">Buy Now</a>
+                        </article>
+
+                        <!-- Pet Card 4 -->
+                        <article class="card">
+                            <div class="img-box" role="img" aria-label="Tabby kittens photo">
+                                [Pet Photo]
+                            </div>
+                            <h3>Tabby Kittens</h3>
+                            <p>9 weeks â€¢ Litter of 3</p>
+                            <p>Atlanta, GA â€¢ 3 miles</p>
+                            <div class="price-tag">$150</div>
+                            <a href="detail.html" class="btn btn-small">Buy Now</a>
+                        </article>
+
+                        <!-- Pet Card 5 -->
+                        <article class="card">
+                            <div class="img-box" role="img" aria-label="Beagle puppies photo">
+                                [Pet Photo]
+                            </div>
+                            <h3>Beagle Puppies</h3>
+                            <p>7 weeks â€¢ Litter of 4</p>
+                            <p>Sandy Springs, GA â€¢ 12 miles</p>
+                            <div class="price-tag">$600</div>
+                            <a href="detail.html" class="btn btn-small">Buy Now</a>
+                        </article>
+
+                        <!-- Pet Card 6 -->
+                        <article class="card">
+                            <div class="img-box" role="img" aria-label="Mixed kittens photo">
+                                [Pet Photo]
+                            </div>
+                            <h3>Mixed Kittens</h3>
+                            <p>11 weeks â€¢ Litter of 6</p>
+                            <p>Roswell, GA â€¢ 18 miles</p>
+                            <div class="price-tag">$75</div>
+                            <a href="detail.html" class="btn btn-small">Buy Now</a>
+                        </article>
+                    </div>
+
+                    <!-- Pagination -->
+                    <nav class="box pagination" aria-label="Pagination navigation">
+                        <a href="#" aria-label="Previous page">â† Previous</a>
+                        <a href="#" aria-label="Page 1" aria-current="page">1</a>
+                        <a href="#" aria-label="Page 2">2</a>
+                        <a href="#" aria-label="Page 3">3</a>
+                        <a href="#" aria-label="Next page">Next â†’</a>
+                    </nav>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer" role="contentinfo">
+            <div>
+                <p>Â© 2025 Warm Paws |
+                    <a href="#about">About</a> |
+                    <a href="#contact">Contact</a> |
+                    <a href="#terms">Terms</a> |
+                    <a href="#privacy">Privacy</a>
+                </p>
+            </div>
+            <nav class="social-links" aria-label="Social media links">
+                Follow us:
+                <a href="#facebook" class="social-link" aria-label="Follow us on Facebook">Facebook</a>
+                <a href="#instagram" class="social-link" aria-label="Follow us on Instagram">Instagram</a>
+                <a href="#twitter" class="social-link" aria-label="Follow us on Twitter">Twitter</a>
+                <a href="#tiktok" class="social-link" aria-label="Follow us on TikTok">TikTok</a>
+            </nav>
+        </footer>
+    </div>
+</body>
+</html>
