@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete your purchase - Secure checkout">
+    <title>Checkout - Warm Paws</title>
+    <link rel="stylesheet" href="project.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js" defer></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Load Stripe public key from environment
+        window.STRIPE_PUBLIC_KEY = 'pk_test_51Saf1dKYPbPJ9hJLmHgle51y0UBRw31xFS0wPDa2FnKzJ6IyylGMFL62TL1KqJRQHjFHF76V33pcspxu6wejRkfg00MeZBVEne';
+    </script>
+    <script src="js/api.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/cart-count.js" defer></script>
+    <script src="js/checkout.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <header>
+            <h1 class="sr-only">Checkout - Warm Paws</h1>
+        </header>
+
+        <main id="main-content">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <strong>WARM PAWS</strong>
+                </div>
+                <ul class="nav-items" role="menubar">
+                    <li role="none">
+                        <a href="browse.html" class="nav-item" role="menuitem">Browse Pets</a>
+                    </li>
+                    <li role="none">
+                        <a href="cart.html" class="nav-item" role="menuitem">Cart (<span id="cart-count">0</span>)</a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="#" class="nav-item" id="accountLink" role="button">My Account</a>
+                </div>
+            </nav>
+
+            <section class="box">
+                <h2>Secure Checkout</h2>
+                <p>Complete your purchase</p>
+            </section>
+
+            <div class="two-column">
+                <!-- Checkout Form -->
+                <div>
+                    <form id="checkoutForm">
+                        <!-- Contact Information -->
+                        <div class="box left-align mb-md">
+                            <h3 style="margin-bottom: 16px;">Contact Information</h3>
+                            <div style="margin-bottom: 16px;">
+                                <label for="email" class="label" style="display: block; margin-bottom: 6px; font-weight: 600;">Email Address *</label>
+                                <input type="email" id="email" name="email" class="form-control" required
+                                       placeholder="your.email@example.com"
+                                       style="width: 100%; padding: 10px; font-size: 14px;">
+                            </div>
+                            <div>
+                                <label for="phone" class="label" style="display: block; margin-bottom: 6px; font-weight: 600;">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" class="form-control" required
+                                       placeholder="(555) 123-4567"
+                                       style="width: 100%; padding: 10px; font-size: 14px;">
+                            </div>
+                        </div>
+
+                        <!-- Shipping Address -->
+                        <div class="box left-align mb-md">
+                            <h3 style="margin-bottom: 16px;">Pickup/Delivery Information</h3>
+                            <div style="margin-bottom: 16px;">
+                                <label for="fullName" class="label" style="display: block; margin-bottom: 6px; font-weight: 600;">Full Name *</label>
+                                <input type="text" id="fullName" name="fullName" class="form-control" required
+                                       placeholder="John Doe"
+                                       style="width: 100%; padding: 10px; font-size: 14px;">
+                            </div>
+                            <div style="margin-bottom: 16px;">
+                                <label for="address" class="label" style="display: block; margin-bottom: 6px; font-weight: 600;">Street Address *</label>
+                                <input type="text" id="address" name="address" class="form-control" required
+                                       placeholder="123 Main St"
+                                       style="width: 100%; padding: 10px; font-size: 14px;">
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+                                <div>
+                                    <label for="city" class="label" style="display: block; margin-bottom: 6px; font-weight: 600;">City *</label>
+                                    <input type="text" id="city" name="city" class="form-control" required
+                                           placeholder="Atlanta"
+                                           style="width: 100%; padding: 10px; font-size: 14px;">
+                                </div>
+                                <div>
+                                    <label for="state" class="label" style="display: block; margin-bottom: 6px; font-weight: 600;">State *</label>
+                                    <input type="text" id="state" name="state" class="form-control" required
+                                           placeholder="GA" maxlength="2"
+                                           style="width: 100%; padding: 10px; font-size: 14px; text-transform: uppercase;">
+                                </div>
+                            </div>
+                            <div style="margin-bottom: 16px;">
+                                <label for="zipCode" class="label" style="display: block; margin-bottom: 6px; font-weight: 600;">ZIP Code *</label>
+                                <input type="text" id="zipCode" name="zipCode" class="form-control" required
+                                       placeholder="30301" pattern="[0-9]{5}"
+                                       style="width: 100%; padding: 10px; font-size: 14px;">
+                            </div>
+                            <div>
+                                <label for="notes" class="label" style="display: block; margin-bottom: 6px; font-weight: 600;">Notes (Optional)</label>
+                                <textarea id="notes" name="notes" class="form-control" rows="3"
+                                          placeholder="Special instructions for pickup/delivery..."
+                                          style="width: 100%; padding: 10px; font-size: 14px;"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Payment Information -->
+                        <div class="box left-align mb-md">
+                            <h3 style="margin-bottom: 16px;">Payment Information</h3>
+                            <div style="margin-bottom: 16px;">
+                                <label for="card-element" class="label" style="display: block; margin-bottom: 6px; font-weight: 600;">Credit or Debit Card *</label>
+                                <div id="card-element" style="padding: 14px; border: 1px solid #ccc; border-radius: 4px; background: white; min-height: 45px;">
+                                    <!-- Stripe Elements will be inserted here -->
+                                </div>
+                                <div id="card-errors" role="alert" style="color: #f67481; margin-top: 8px; font-size: 13px; min-height: 20px;"></div>
+                            </div>
+
+                            <div style="padding: 14px; background: #f5f5f5; border-radius: 4px; font-size: 13px; line-height: 1.5;">
+                                <p style="margin: 0; font-weight: 600;">🔒 Secure payment powered by Stripe</p>
+                                <p style="margin: 6px 0 0 0; color: #666;">Your payment information is encrypted and never stored on our servers.</p>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="box left-align">
+                            <button type="submit" class="btn btn-large btn-block" id="submitBtn">
+                                Complete Purchase
+                            </button>
+                            <div id="payment-status" class="mt-sm" style="text-align: center;"></div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <aside>
+                    <div class="box left-align" id="orderSummary">
+                        <h3>Order Summary</h3>
+                        <div id="orderItems" class="mt-md">
+                            <!-- Order items will be loaded here -->
+                            <p style="text-align: center;">Loading...</p>
+                        </div>
+
+                        <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+
+                        <div class="price-breakdown">
+                            <div class="price-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Service Fee (5%):</span>
+                                <span id="buyerFee">$0.00</span>
+                            </div>
+                            <div class="price-row total">
+                                <strong>Total:</strong>
+                                <strong id="total">$0.00</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box info left-align mt-md">
+                        <h4>What happens next?</h4>
+                        <p style="font-size: 12px; line-height: 1.6;">
+                            1. Payment is processed securely<br>
+                            2. Seller is notified of your purchase<br>
+                            3. Coordinate pickup/delivery<br>
+                            4. Receive your new pet!
+                        </p>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="footer" role="contentinfo">
+            <div>
+                <p>&copy; 2025 Warm Paws |
+                    <a href="index.html">Home</a> |
+                    <a href="contact.html">Contact</a> |
+                    <a href="#terms">Terms</a> |
+                    <a href="#privacy">Privacy</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

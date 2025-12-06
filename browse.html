@@ -6,6 +6,11 @@
     <meta name="description" content="Browse available puppies and kittens for sale. Find your perfect pet near you.">
     <title>Browse Pets - Warm Paws</title>
     <link rel="stylesheet" href="project.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/browse.js" defer></script>
 </head>
 <body>
     <!-- Skip to main content link for accessibility -->
@@ -35,10 +40,7 @@
                         <a href="gallery.html" class="nav-item" role="menuitem">Gallery</a>
                     </li>
                     <li role="none">
-                        <a href="#about" class="nav-item" role="menuitem">About</a>
-                    </li>
-                    <li role="none">
-                        <a href="#contact" class="nav-item" role="menuitem">Contact</a>
+                        <a href="cart.html" class="nav-item" role="menuitem">Cart (<span id="cart-count">0</span>)</a>
                     </li>
                 </ul>
                 <div>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Your shopping cart - Review items before checkout">
+    <title>Shopping Cart - Warm Paws</title>
+    <link rel="stylesheet" href="project.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/cart.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <header>
+            <h1 class="sr-only">Shopping Cart - Warm Paws</h1>
+        </header>
+
+        <main id="main-content">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <strong>WARM PAWS</strong>
+                </div>
+                <ul class="nav-items" role="menubar">
+                    <li role="none">
+                        <a href="browse.html" class="nav-item" role="menuitem">Browse Pets</a>
+                    </li>
+                    <li role="none">
+                        <a href="sell.html" class="nav-item" role="menuitem">Post a Pet</a>
+                    </li>
+                    <li role="none">
+                        <a href="gallery.html" class="nav-item" role="menuitem">Gallery</a>
+                    </li>
+                    <li role="none">
+                        <a href="cart.html" class="nav-item active" role="menuitem" aria-current="page">Cart (<span id="cart-count">0</span>)</a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="#" class="nav-item" id="accountLink" role="button">My Account</a>
+                </div>
+            </nav>
+
+            <section class="box">
+                <h2>Shopping Cart</h2>
+                <p id="cart-subtitle">Review your items before checkout</p>
+            </section>
+
+            <div class="two-column">
+                <!-- Cart Items -->
+                <div>
+                    <div id="cartItems">
+                        <!-- Cart items will be loaded here -->
+                        <div class="box" style="text-align: center; padding: 40px;">
+                            <p>Loading cart...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Order Summary -->
+                <aside>
+                    <div class="box left-align" id="orderSummary">
+                        <h3>Order Summary</h3>
+                        <div class="price-breakdown">
+                            <div class="price-row">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="price-row">
+                                <span>Service Fee (5%):</span>
+                                <span id="buyerFee">$0.00</span>
+                            </div>
+                            <div class="price-row total">
+                                <strong>Total:</strong>
+                                <strong id="total">$0.00</strong>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-large btn-block mt-lg" id="checkoutBtn" disabled>
+                            Proceed to Checkout
+                        </button>
+                        <a href="browse.html" class="btn btn-secondary btn-block mt-sm">Continue Shopping</a>
+                    </div>
+
+                    <div class="box info left-align mt-md">
+                        <h4>Buyer Protection</h4>
+                        <p style="font-size: 12px; line-height: 1.5;">
+                            ✓ Secure payment processing<br>
+                            ✓ Purchase protection<br>
+                            ✓ Direct contact with seller<br>
+                            ✓ Transaction history
+                        </p>
+                    </div>
+                </aside>
+            </div>
+        </main>
+
+        <footer class="footer" role="contentinfo">
+            <div>
+                <p>&copy; 2025 Warm Paws |
+                    <a href="index.html">Home</a> |
+                    <a href="contact.html">Contact</a> |
+                    <a href="#terms">Terms</a> |
+                    <a href="#privacy">Privacy</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

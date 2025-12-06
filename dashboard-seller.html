@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Seller Dashboard - Manage your listings and sales">
+    <title>Seller Dashboard - Warm Paws</title>
+    <link rel="stylesheet" href="project.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js" defer></script>
+    <script src="js/api.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/dashboard-seller.js" defer></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="container">
+        <header>
+            <h1 class="sr-only">Seller Dashboard - Warm Paws</h1>
+        </header>
+
+        <main id="main-content">
+            <nav class="nav" role="navigation" aria-label="Main navigation">
+                <div class="nav-brand">
+                    <strong>WARM PAWS</strong>
+                </div>
+                <ul class="nav-items" role="menubar">
+                    <li role="none">
+                        <a href="browse.html" class="nav-item" role="menuitem">Browse Pets</a>
+                    </li>
+                    <li role="none">
+                        <a href="sell.html" class="nav-item" role="menuitem">Post a Pet</a>
+                    </li>
+                    <li role="none">
+                        <a href="dashboard-seller.html" class="nav-item active" role="menuitem" aria-current="page">My Dashboard</a>
+                    </li>
+                    <li role="none">
+                        <a href="messages.html" class="nav-item" role="menuitem">Messages</a>
+                    </li>
+                </ul>
+                <div>
+                    <a href="#" class="nav-item" id="accountLink" role="button">My Account</a>
+                    <button class="btn btn-small" id="logoutBtn">Logout</button>
+                </div>
+            </nav>
+
+            <section class="box">
+                <h2>Seller Dashboard</h2>
+                <p id="welcomeMessage">Welcome back!</p>
+            </section>
+
+            <!-- Tab Navigation -->
+            <div class="box">
+                <div style="display: flex; gap: 10px; border-bottom: 2px solid #eee; padding-bottom: 10px;">
+                    <button class="tab-btn active" data-tab="listings">My Listings</button>
+                    <button class="tab-btn" data-tab="sales">Sales & Orders</button>
+                    <button class="tab-btn" data-tab="analytics">Analytics</button>
+                </div>
+            </div>
+
+            <!-- My Listings Tab -->
+            <div id="listings-tab" class="tab-content active">
+                <div class="box left-align mb-md">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>Your Pet Listings</h3>
+                        <a href="sell.html" class="btn">+ New Listing</a>
+                    </div>
+                </div>
+
+                <div id="listingsContainer">
+                    <div class="box" style="text-align: center; padding: 40px;">
+                        <p>Loading your listings...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sales & Orders Tab -->
+            <div id="sales-tab" class="tab-content" style="display: none;">
+                <div class="box left-align">
+                    <h3>Your Sales</h3>
+                    <p style="color: #666;">Orders where buyers purchased your pets</p>
+                </div>
+
+                <div id="salesContainer">
+                    <div class="box" style="text-align: center; padding: 40px;">
+                        <p>Loading your sales...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div id="analytics-tab" class="tab-content" style="display: none;">
+                <div class="box left-align">
+                    <h3>Sales Analytics</h3>
+                </div>
+
+                <div class="grid">
+                    <div class="box text-center">
+                        <h4>Total Listings</h4>
+                        <div class="price-tag large" id="totalListings">0</div>
+                    </div>
+                    <div class="box text-center">
+                        <h4>Active Listings</h4>
+                        <div class="price-tag large" id="activeListings">0</div>
+                    </div>
+                    <div class="box text-center">
+                        <h4>Total Sales</h4>
+                        <div class="price-tag large" id="totalSales">$0.00</div>
+                    </div>
+                    <div class="box text-center">
+                        <h4>Total Earnings</h4>
+                        <div class="price-tag large" id="totalEarnings">$0.00</div>
+                        <p style="font-size: 12px; color: #666; margin-top: 8px;">After platform fees</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer" role="contentinfo">
+            <div>
+                <p>&copy; 2025 Warm Paws |
+                    <a href="index.html">Home</a> |
+                    <a href="contact.html">Contact</a> |
+                    <a href="#terms">Terms</a> |
+                    <a href="#privacy">Privacy</a>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Edit Listing Modal (hidden by default) -->
+    <div id="editModal" class="modal" style="display: none;">
+        <div class="modal-content box" style="max-width: 600px; margin: 50px auto;">
+            <div style="display: flex; justify-content: between; align-items: center; margin-bottom: 20px;">
+                <h3>Edit Listing</h3>
+                <button class="btn btn-secondary btn-small" onclick="closeEditModal()">Close</button>
+            </div>
+            <form id="editForm">
+                <!-- Form fields will be populated dynamically -->
+            </form>
+        </div>
+    </div>
+</body>
+</html>
