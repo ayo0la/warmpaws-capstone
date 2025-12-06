@@ -231,6 +231,63 @@ const Utils = {
         cartCountElements.forEach(element => {
             element.textContent = count;
         });
+    },
+
+    // Update navigation based on auth state
+    async updateNavigation() {
+        try {
+            const user = await this.checkAuth();
+            const loginBtn = document.querySelector('.login-btn');
+
+            if (!loginBtn) return;
+
+            if (user) {
+                // User is logged in - show account menu
+                const userName = user.first_name || user.email.split('@')[0];
+
+                // Create dropdown menu
+                loginBtn.textContent = `My Account (${userName})`;
+                loginBtn.href = user.role === 'admin' ? '/dashboard-admin.html' :
+                                user.role === 'seller' ? '/dashboard-seller.html' :
+                                '/dashboard-buyer.html';
+
+                // Add logout option (convert to a wrapper div with dropdown)
+                const existingLogoutBtn = document.getElementById('logout-btn');
+                if (!existingLogoutBtn) {
+                    const logoutBtn = document.createElement('a');
+                    logoutBtn.id = 'logout-btn';
+                    logoutBtn.href = '#';
+                    logoutBtn.className = 'nav-item';
+                    logoutBtn.textContent = 'Logout';
+                    logoutBtn.style.cssText = 'margin-left: 10px; font-size: 0.9em;';
+                    logoutBtn.addEventListener('click', async (e) => {
+                        e.preventDefault();
+                        try {
+                            await API.auth.logout();
+                            Utils.showToast('Logged out successfully', 'success');
+                            setTimeout(() => {
+                                window.location.href = '/index.html';
+                            }, 500);
+                        } catch (error) {
+                            Utils.showToast('Logout failed', 'error');
+                        }
+                    });
+                    loginBtn.parentElement.appendChild(logoutBtn);
+                }
+            } else {
+                // User is not logged in - show login/register button
+                loginBtn.textContent = 'Login / Register';
+                loginBtn.href = '/login.html';
+
+                // Remove logout button if exists
+                const logoutBtn = document.getElementById('logout-btn');
+                if (logoutBtn) {
+                    logoutBtn.remove();
+                }
+            }
+        } catch (error) {
+            console.error('Error updating navigation:', error);
+        }
     }
 };
 

@@ -11,6 +11,11 @@
     <script src="js/api.js" defer></script>
     <script src="js/utils.js" defer></script>
     <script src="js/cart.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            await Utils.updateNavigation();
+        });
+    </script>
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>

@@ -2,6 +2,7 @@
 document.addEventListener('DOMContentLoaded', async () => {
     await loadPets();
     setupFilterListeners();
+    await Utils.updateNavigation();
     await Utils.updateCartCount();
 });
 
