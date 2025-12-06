@@ -39,31 +39,45 @@ function displayPetDetails(pet) {
 
     // Update photos
     if (pet.photos && pet.photos.length > 0) {
-        // Find main photo placeholder
-        const mainPhotoPlaceholder = document.querySelector('.pet-photo');
+        // Find main photo placeholder - look for the div with [Main Pet Photo] text
+        const photoBoxes = document.querySelectorAll('.box');
+        let mainPhotoPlaceholder = null;
+        let thumbContainer = null;
+
+        // Find the photo container (first article.box with images)
+        for (const box of photoBoxes) {
+            if (box.textContent.includes('[Main Pet Photo]') || box.querySelector('[aria-label*="Main photo"]')) {
+                mainPhotoPlaceholder = box.querySelector('div[style*="height: 250px"]');
+                thumbContainer = box.querySelector('div[style*="grid-template-columns"]');
+                break;
+            }
+        }
+
         if (mainPhotoPlaceholder) {
             const primaryPhoto = pet.photos.find(p => p.is_primary) || pet.photos[0];
             mainPhotoPlaceholder.innerHTML = `<img src="${primaryPhoto.photo_url}" alt="${pet.name || pet.breed}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            mainPhotoPlaceholder.style.border = 'none';
         }
 
         // Update thumbnail gallery
-        const thumbContainer = document.querySelector('.pet-thumbnails');
-        if (thumbContainer) {
+        if (thumbContainer && pet.photos.length > 0) {
             thumbContainer.innerHTML = pet.photos.map((photo, index) => `
-                <div class="thumbnail ${photo.is_primary ? 'active' : ''}" data-index="${index}">
-                    <img src="${photo.photo_url}" alt="Photo ${index + 1}" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;">
+                <div style="height: 50px; border: ${photo.is_primary ? '2px solid #6c5b80' : '1px solid #999'}; cursor: pointer; overflow: hidden;" data-index="${index}">
+                    <img src="${photo.photo_url}" alt="Photo ${index + 1}" style="width: 100%; height: 100%; object-fit: cover;">
                 </div>
             `).join('');
 
             // Add click handlers for thumbnails
-            thumbContainer.querySelectorAll('.thumbnail').forEach((thumb, index) => {
+            thumbContainer.querySelectorAll('div[data-index]').forEach((thumb, index) => {
                 thumb.addEventListener('click', () => {
                     if (mainPhotoPlaceholder) {
                         mainPhotoPlaceholder.innerHTML = `<img src="${pet.photos[index].photo_url}" alt="${pet.name || pet.breed}" style="width: 100%; height: 100%; object-fit: cover;">`;
                     }
                     // Update active state
-                    thumbContainer.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
-                    thumb.classList.add('active');
+                    thumbContainer.querySelectorAll('div[data-index]').forEach(t => {
+                        t.style.border = '1px solid #999';
+                    });
+                    thumb.style.border = '2px solid #6c5b80';
                 });
             });
         }
