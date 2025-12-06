@@ -145,30 +145,73 @@ const API = {
                     seller:profiles!pets_seller_id_fkey(id, first_name, last_name, email),
                     photos:pet_photos(id, photo_url, is_primary)
                 `)
-                .eq('status', 'available')
-                .order('created_at', { ascending: false });
+                .eq('status', 'available');
 
-            // Apply filters
-            if (filters.type && filters.type.length > 0) {
-                // If type is an array, use .in(), otherwise use .eq()
-                if (Array.isArray(filters.type)) {
-                    query = query.in('type', filters.type);
-                } else {
-                    query = query.eq('type', filters.type);
+            // Apply sorting first (before other filters)
+            if (filters.sort) {
+                switch(filters.sort) {
+                    case 'price_asc':
+                        query = query.order('price', { ascending: true });
+                        break;
+                    case 'price_desc':
+                        query = query.order('price', { ascending: false });
+                        break;
+                    case 'closest':
+                        // For now, sort by location alphabetically
+                        // In production, this would use geolocation distance
+                        query = query.order('location', { ascending: true });
+                        break;
+                    case 'newest':
+                    default:
+                        query = query.order('created_at', { ascending: false });
+                        break;
                 }
+            } else {
+                query = query.order('created_at', { ascending: false });
             }
+
+            // Apply type filter
+            if (filters.type && filters.type.length > 0) {
+                // Convert "puppies" to "dog" and "kittens" to "cat"
+                const petTypes = filters.type.map(t => {
+                    if (t === 'puppies') return 'dog';
+                    if (t === 'kittens') return 'cat';
+                    return t;
+                });
+                query = query.in('type', petTypes);
+            }
+
+            // Apply price filters
             if (filters.minPrice) {
                 query = query.gte('price', parseFloat(filters.minPrice));
             }
             if (filters.maxPrice) {
                 query = query.lte('price', parseFloat(filters.maxPrice));
             }
-            if (filters.minAge) {
-                query = query.gte('age_months', parseInt(filters.minAge));
+
+            // Apply age filters - handle age ranges like "0-8", "8-12", "3plus"
+            if (filters.age && filters.age.length > 0) {
+                // Convert week ranges to month filters
+                let ageConditions = [];
+                for (const ageRange of filters.age) {
+                    if (ageRange === '0-8') {
+                        // 0-8 weeks = 0-2 months
+                        ageConditions.push('age_months.lte.2');
+                    } else if (ageRange === '8-12') {
+                        // 8-12 weeks = 2-3 months
+                        ageConditions.push('and(age_months.gte.2,age_months.lte.3)');
+                    } else if (ageRange === '3plus') {
+                        // 3+ months
+                        ageConditions.push('age_months.gte.3');
+                    }
+                }
+
+                if (ageConditions.length > 0) {
+                    // Use OR logic for multiple age ranges
+                    query = query.or(ageConditions.join(','));
+                }
             }
-            if (filters.maxAge) {
-                query = query.lte('age_months', parseInt(filters.maxAge));
-            }
+
             if (filters.location) {
                 query = query.ilike('location', `%${filters.location}%`);
             }
