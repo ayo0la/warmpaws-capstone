@@ -376,7 +376,7 @@ function setupEventListeners() {
 
     const accountLink = document.getElementById('accountLink');
     if (accountLink && currentUser) {
-        accountLink.textContent = currentUser.firstName || 'Admin';
+        accountLink.textContent = currentUser.first_name || 'Admin';
     }
 }
 

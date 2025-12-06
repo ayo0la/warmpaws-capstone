@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Update welcome message
     const welcomeMessage = document.getElementById('welcomeMessage');
     if (welcomeMessage) {
-        welcomeMessage.textContent = `Welcome back, ${currentUser.firstName}!`;
+        welcomeMessage.textContent = `Welcome back, ${currentUser.first_name || currentUser.email}!`;
     }
 
     // Setup tab navigation
@@ -321,7 +321,7 @@ function setupEventListeners() {
 
     const accountLink = document.getElementById('accountLink');
     if (accountLink && currentUser) {
-        accountLink.textContent = currentUser.firstName || 'My Account';
+        accountLink.textContent = currentUser.first_name || 'My Account';
         accountLink.href = '#';
     }
 }

@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Update welcome message
     const welcomeMessage = document.getElementById('welcomeMessage');
     if (welcomeMessage) {
-        welcomeMessage.textContent = `Welcome back, ${currentUser.firstName}!`;
+        welcomeMessage.textContent = `Welcome back, ${currentUser.first_name || currentUser.email}!`;
     }
 
     // Check for payment success
@@ -178,8 +178,8 @@ function loadProfile() {
     const emailInput = document.getElementById('email');
     const phoneInput = document.getElementById('phone');
 
-    if (firstNameInput && currentUser.firstName) firstNameInput.value = currentUser.firstName;
-    if (lastNameInput && currentUser.lastName) lastNameInput.value = currentUser.lastName;
+    if (firstNameInput && currentUser.first_name) firstNameInput.value = currentUser.first_name;
+    if (lastNameInput && currentUser.last_name) lastNameInput.value = currentUser.last_name;
     if (emailInput && currentUser.email) emailInput.value = currentUser.email;
     if (phoneInput && currentUser.phone) phoneInput.value = currentUser.phone;
 }
@@ -202,7 +202,7 @@ function setupEventListeners() {
     // Account link
     const accountLink = document.getElementById('accountLink');
     if (accountLink && currentUser) {
-        accountLink.textContent = currentUser.firstName || 'My Account';
+        accountLink.textContent = currentUser.first_name || 'My Account';
         accountLink.href = '#';
     }
 
@@ -234,8 +234,8 @@ async function updateProfile() {
         submitBtn.textContent = 'Updating...';
 
         const updates = {
-            firstName: document.getElementById('firstName').value,
-            lastName: document.getElementById('lastName').value,
+            first_name: document.getElementById('firstName').value,
+            last_name: document.getElementById('lastName').value,
             phone: document.getElementById('phone').value
         };
 
